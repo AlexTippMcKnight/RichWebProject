@@ -9,16 +9,9 @@ export default function Home() {
       </p>
 
       <div className="card">
-        <h2>Profile</h2>
+        <h2>Search</h2>
         <p>Welcome to the app.</p>
       </div>
-      
-      
-       <div className="card">
-        <h2>Hmmm</h2>
-        <p>We should probably login.</p>
-      </div>
-      
     </section>
   );
 }

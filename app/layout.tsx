@@ -23,9 +23,13 @@ export default function RootLayout({
             Search
           </Link>
 
-          <Link href="/profile">
+          <Link href="/products">
             <span>○</span>
-            Profile
+            Products
+          </Link>
+          <Link href="/addProduct">
+            <span>○</span>
+            Add Product
           </Link>
         </nav>
       </body>
