@@ -1,17 +1,34 @@
-// app/page.tsx
-export default function Home() {
+import { createClient } from "redis";
+
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+
+  const redis = createClient({
+    url: process.env.REDIS_URL
+  });
+
+  redis.on("error", console.error);
+
+  await redis.connect();
+
+  const data = await redis.hGetAll("homepage_text");
+
+  await redis.quit();
+
   return (
     <section className="page">
-      <p className="eyebrow"></p>
-      <h1>Home</h1>
-      <p className="description">
-        
-      </p>
+
+      <h1>{data.title}</h1>
 
       <div className="card">
-        <h2>Welcome!</h2>
-        <p>Welcome to the app.</p>
+
+        <p>{data.description}</p>
+
+        <a href="/products"><button>{data.button}</button></a>
+
       </div>
+
     </section>
   );
 }
