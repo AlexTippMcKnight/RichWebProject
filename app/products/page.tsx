@@ -1,19 +1,30 @@
-export default async function Home() {
 
-  const res = await fetch('http://localhost:3000/api/getAll');
+"use client";
 
-  const data: {
+import { useEffect, useState } from "react";
 
-    id: string;
-    brand: string;
-    model: string;
-    description: string;
-    price: string;
+export default function Home() {
 
-  }[] = await res.json();
+  const [products, setProducts] = useState<any[]>([]);
+
+  const getProducts = async () => {
+    const res = await fetch("/api/getAll");
+    setProducts(await res.json());
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const deleteProduct = async (id: string) => {
+    await fetch(`/api/deleteProduct?id=${id}`, {
+      method: "DELETE",
+    });
+
+    getProducts();
+  };
 
   return (
-
     <section className="page">
 
       <h1>Home</h1>
@@ -22,17 +33,18 @@ export default async function Home() {
 
         <h2>All data in the database</h2>
 
-        {data.map((item) => (
+        {products.map((item) => (
 
           <div key={item.id}>
-            
+
             <p>Brand: {item.brand}</p>
-
             <p>Model: {item.model}</p>
-
             <p>Price: €{item.price}</p>
-
             <p>Description: {item.description}</p>
+
+            <button onClick={() => deleteProduct(item.id)}>
+              Delete
+            </button>
 
             <hr />
 
@@ -43,7 +55,5 @@ export default async function Home() {
       </div>
 
     </section>
-
   );
-
 }

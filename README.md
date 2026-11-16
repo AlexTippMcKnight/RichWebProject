@@ -1,1 +1,1 @@
-This is the sample Next.js app with a basic web app UI.
+Added the ability to delete/add products 
