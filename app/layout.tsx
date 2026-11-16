@@ -18,15 +18,11 @@ export default function RootLayout({
             Home
           </Link>
 
-          <Link href="/search">
-            <span>⌕</span>
-            Search
-          </Link>
-
           <Link href="/products">
             <span>○</span>
             Products
           </Link>
+          
           <Link href="/addProduct">
             <span>○</span>
             Add Product
