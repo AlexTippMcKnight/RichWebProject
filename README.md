@@ -1,1 +1,1 @@
-Added the ability to delete/add products 
+Added the ability to edit/view products page

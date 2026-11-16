@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function Laptops() {
 
   const [products, setProducts] = useState<any[]>([]);
 
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <section className="page">
 
-      <h1>Home</h1>
+      <h1>Laptops</h1>
 
       <div className="card">
 
@@ -42,10 +42,12 @@ export default function Home() {
             <p>Price: €{item.price}</p>
             <p>Description: {item.description}</p>
 
-            <button onClick={() => deleteProduct(item.id)}>
-              Delete
-            </button>
+            <a href={`/singleProduct/${item.id}`}><button>View</button></a>
 
+            <a href={`/editProduct/${item.id}`}><button>Edit</button></a>
+
+            <button onClick={() => deleteProduct(item.id)}>Delete</button>
+            
             <hr />
 
           </div>
