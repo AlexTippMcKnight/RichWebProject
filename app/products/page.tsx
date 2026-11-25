@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from 'next/image'
 
 export default function Laptops() {
 
@@ -36,7 +37,7 @@ export default function Laptops() {
         {products.map((item) => (
 
           <div key={item.id}>
-
+            <Image src={item.imageURL} width={200} height={200} alt="Picture of the laptop"/>
             <p>Brand: {item.brand}</p>
             <p>Model: {item.model}</p>
             <p>Price: €{item.price}</p>
