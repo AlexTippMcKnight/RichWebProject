@@ -1,7 +1,5 @@
 import { createClient } from "redis";
 
-export const dynamic = "force-dynamic";
-
 export default async function Home() {
 
   const redis = createClient({

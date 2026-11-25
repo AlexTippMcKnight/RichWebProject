@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Image from 'next/image'
 
 export default function Laptops() {
-
+  // State variable to hold the products
   const [products, setProducts] = useState<any[]>([]);
 
   const getProducts = async () => {
@@ -13,9 +13,7 @@ export default function Laptops() {
     setProducts(await res.json());
   };
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+  useEffect(() => { getProducts(); }, []);
 
   const deleteProduct = async (id: string) => {
     await fetch(`/api/deleteProduct?id=${id}`, {
