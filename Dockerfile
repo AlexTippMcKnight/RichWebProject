@@ -7,3 +7,5 @@ EXPOSE 80
 
 #  docker build -t my-nginx .
 #  docker run --rm -p 7070:80 my-nginx
+
+#  npm run build/start 
