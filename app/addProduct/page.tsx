@@ -22,7 +22,8 @@ export default function AddProduct() {
       brand,
       model,
       price,
-      description
+      description,
+      imageURL: "https://res.cloudinary.com/bjb2pjth/image/upload/v1795611211/3530.jpg"
     });
 
     redirect("/products");
